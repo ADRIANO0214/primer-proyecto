@@ -11,12 +11,37 @@
 
 <script type="text/javascript" src="./bootstrap-5.0.2-dist/css/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script type="text/javascript" src="./javascript/jvc.js" ></script>
+<script type="text/javascript" src="./script/jvc.js" ></script>
+<script type="text/javascript">
+function sendAsesoramiento() {
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const textInput = document.getElementById('text-input');
+    const mobileNumber = 51944500000; // Mobile number here ...
 
+    if (name.value.trim() === '') {
+      name.style.background = 'lightpink';
+      name.style.border = '4px solid red';
+      alert('Por favor ingresa su nombre');
+      return false;
+    }
+    if (email.value.trim() === '') {
+      email.style.background = 'lightpink';
+      email.style.border = '4px solid red';
+      alert('Por favor ingresa su correo electronico');
+      return false;
+    }
+  
+    const url = `${`https://wa.me/${mobileNumber}?text=` + 'Name: '}${name.value}%0a Email ID: ${email.value}%0a Message: asesormiento+' '+${textInput.value}`;
+  
+    window.open(url, '_blank').focus();
+    return true;
+  }
+</script>
 </head>
 
 <body>
-	<div class="container-fluid claro main_div">
+	<div class="container-fluid claro main-div">
 	<header>
 		<div class="container"> 
 		<div class="row">
@@ -33,39 +58,29 @@
 						<img class="img-menu-movil" src="./assets/img/Otros/MenuMovil.png" alt="Menu para movil"/>
 						<ul class="submenu">
 							<li>
-								<a class="btn btn-primary boton_main_menu claro"
+								<a class="btn btn-primary boton-main-menu"
 									href="./inicio.htm">Inicio</a>
 							</li>
 							<li>
-								<a class="btn btn-primary boton_main_menu claro"
+								<a class="btn btn-primary boton-main-menu"
 									href="./nosotros.htm">Nosotros</a>
 							</li>
 							<li>
-								<a class="btn btn-primary boton_main_menu claro"
+								<a class="btn btn-primary boton-main-menu"
 									href="./servicios.htm">Servicios</a>
 							</li>
 							<li>
-								<a class="btn btn-primary boton_main_menu claro"
-									href="./productos.htm">Productos</a>
+								<a class="btn btn-primary boton-main-menu"
+									href="./productos.html">Productos</a>
 							</li>
 							<li>
-								<a class="btn btn-primary boton_main_menu claro"
+								<a class="btn btn-primary boton-main-menu"
 									href="./contacto.htm">Contacto</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</nav>
-		<!--div-->
-			<!-- Boton para cambiar el modo oscuro-claro -->
-			<!--label for="darkmodeswitch">Modo oscuro</label>
-			<input type="checkbox" id="darkmodeswitch" />
-			<script type="text/javascript" src="./script/Menu.js" ></script>
-			<script type="text/javascript">
-				window.currBoton = "";
-				window.darkmodeswitch = document.getElementById("darkmodeswitch");
-				window.darkmodeswitch.addEventListener('change', darkModeSwitchChanged);
-			</script-->
 		</div>
 		<!-- disappears when small -->
 		<div class="col-sm-12 d-none d-s-none d-md-block">
@@ -74,24 +89,24 @@
 				<ul class="menu">
 				<!--div class="btn-group claro" -->
 					<li class="navigation-list">
-						<a class="btn btn-primary boton_main_menu claro"
-							href="./inicio.htm">Inicio</a>
+						<a class="btn btn-primary boton-main-menu"
+							href="./index.html">Inicio</a>
 					</li>
 					<li class="navigation-list">
-						<a class="btn btn-primary boton_main_menu claro"
-							href="./nosotros.htm">Nosotros</a>
+						<a class="btn btn-primary boton-main-menu"
+							href="./nosotros.html">Nosotros</a>
 					</li>
 					<li class="navigation-list">
-						<a class="btn btn-primary boton_main_menu claro"
-							href="./servicios.htm">Servicios</a>
+						<a class="btn btn-primary boton-main-menu"
+							href="./servicios.html">Servicios</a>
 					</li>
 					<li class="navigation-list">
-						<a class="btn btn-primary boton_main_menu claro"
-							href="./productos.htm">Productos</a>
+						<a class="btn btn-primary boton-main-menu"
+							href="./productos.html">Productos</a>
 					</li>
 					<li class="navigation-list">
-						<a class="btn btn-primary boton_main_menu claro"
-							href="./contacto.htm">Contacto</a>
+						<a class="btn btn-primary boton-main-menu"
+							href="./contacto.html">Contacto</a>
 					</li>
 				</ul>
 			</nav>
@@ -103,26 +118,29 @@
 		<div class="container">
 			<div class="row">
 				<form onsubmit="return validate()" action="https://formsubmit.co/sanketshilvant@gmail.com" method="POST"
-						class="container form_left" id="input">
+						class="container form-left" id="input">
 					<input type="hidden" name="_captcha" value="false">
 					<div class="row my-4">
-					  <div class="label_form">Nombre completo</div>
+					  <div class="label-form">Nombre completo</div>
 					  <input type="text" id="name" name="name" placeholder="Nombre">
 					</div>
 					<div class="row my-4">
-						<div class="label_form">Correo electronico</div>
+						<div class="label-form">Correo electronico</div>
 					  <input type="email" id="email" name="email" placeholder="Correo electronico">
 					</div>
 					<div class="row my-4">
-						<div class="label_form">Asunto</div>
+						<div class="label-form">Asunto</div>
 						<textarea placeholder="Asesoramiento" id="text-input" name="topics" type="text"></textarea>
 					  </div>  
 					<div class="row my-4">
-						<div class="label_form">Asesoramiento</div>
+						<div class="label-form">Asesoramiento</div>
 					  <textarea placeholder="Asesoramiento" id="text-input" name="message" type="text" rows="5" cols="5"></textarea>
 					</div>
 					<div class="row my-4 justify-content-center" id="btn">
-					  <div class="col-4 mr-auto"><button type="button" onClick="sendComment()" class="boton_sendform">Send<i class="fab fa-whatsapp"></i></button></div>
+					  <div class="col-4 mr-auto">
+						<button type="button" onClick="sendAsesoramiento()" class="boton-sendform">Enviar<i class="fab fa-whatsapp"></i>
+						</button>
+					  </div>
 					</div>
 				  </form>
 			</div>
@@ -132,12 +150,12 @@
 	<footer class="container claro">
 		<div class="row">
 			<div class="logos-footer">
-				<img class="marca_logo" src="./assets/img/Otros/nRyCTWc.png" alt="Logo de JVC"/>
-				<img class="marca_logo" src="./assets/img/Marcas/marcas-1531782528.png" alt="Logo de Cristauro"/>
-				<img class="marca_logo" src="./assets/img/Marcas/marcas-1531782546.png" alt="Logo de Master Golds"/>
-				<img class="marca_logo" src="./assets/img/Marcas/marcas-1555554923.png" alt="Logo de TVX"/>
-				<img class="marca_logo" src="./assets/img/Marcas/marcas-1531782566.jpg" alt="Logo de fortan Clean"/>
-				<img class="marca_logo" src="./assets/img/Marcas/PYhqQQb.png" alt="Logo de Ansul"/>
+				<img class="marca-logo" src="./assets/img/Otros/nRyCTWc.png" alt="Logo de JVC"/>
+				<img class="marca-logo" src="./assets/img/Marcas/marcas-1531782528.png" alt="Logo de Cristauro"/>
+				<img class="marca-logo" src="./assets/img/Marcas/marcas-1531782546.png" alt="Logo de Master Golds"/>
+				<img class="marca-logo" src="./assets/img/Marcas/marcas-1555554923.png" alt="Logo de TVX"/>
+				<img class="marca-logo" src="./assets/img/Marcas/marcas-1531782566.jpg" alt="Logo de fortan Clean"/>
+				<img class="marca-logo" src="./assets/img/Marcas/PYhqQQb.png" alt="Logo de Ansul"/>
 			</div>
 		</div>
 		<div>
